@@ -56,15 +56,22 @@
                                                             <rect key="frame" x="3" y="0.0" width="17" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSActionTemplate" id="Uz4-wG-tml"/>
+                                                            <connections>
+                                                                <binding destination="xIY-VV-vQx" name="value" keyPath="objectValue.photo" id="Ves-Y6-7ML"/>
+                                                            </connections>
                                                         </imageView>
                                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T9U-cp-ZqB">
                                                             <rect key="frame" x="25" y="0.0" width="248.5" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                            <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="jPo-C8-oYY">
+                                                            <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="Table View Cell" id="jPo-C8-oYY">
                                                                 <font key="font" metaFont="system"/>
                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
+                                                            <connections>
+                                                                <binding destination="xIY-VV-vQx" name="fontBold" keyPath="objectValue.onSpecial" id="Nln-lk-Cln"/>
+                                                                <binding destination="xIY-VV-vQx" name="value" keyPath="objectValue.makeModel" id="8xd-Oq-D7A"/>
+                                                            </connections>
                                                         </textField>
                                                     </subviews>
                                                     <connections>
@@ -94,12 +101,16 @@
                                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kqH-fk-Aee">
                                                             <rect key="frame" x="0.0" y="0.0" width="135" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                            <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="jZ4-5s-t81">
+                                                            <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="Table View Cell" id="jZ4-5s-t81">
                                                                 <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="currency" minimumIntegerDigits="1" maximumIntegerDigits="309" minimumFractionDigits="2" maximumFractionDigits="2" id="dlx-FN-UKh"/>
                                                                 <font key="font" metaFont="system"/>
                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
+                                                            <connections>
+                                                                <binding destination="tG2-mi-EBS" name="fontBold" keyPath="objectValue.onSpecial" id="486-Co-4Yd"/>
+                                                                <binding destination="tG2-mi-EBS" name="value" keyPath="objectValue.price" id="WrR-rm-oYw"/>
+                                                            </connections>
                                                         </textField>
                                                     </subviews>
                                                     <connections>
@@ -132,6 +143,9 @@
                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                 <font key="font" metaFont="system"/>
                                                             </buttonCell>
+                                                            <connections>
+                                                                <binding destination="m6w-1P-SjI" name="value" keyPath="objectValue.onSpecial" id="i3h-Oa-B2r"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                 </tableCellView>
@@ -140,6 +154,7 @@
                                     </tableColumns>
                                     <connections>
                                         <binding destination="Bhg-p0-7YI" name="content" keyPath="arrangedObjects" id="LJr-7U-2iB"/>
+                                        <binding destination="Bhg-p0-7YI" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="LJr-7U-2iB" id="6Df-sF-ZTu"/>
                                     </connections>
                                 </tableView>
                             </subviews>
@@ -165,6 +180,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="add:" target="Bhg-p0-7YI" id="NWY-JX-BdM"/>
+                        </connections>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aQh-6V-XkR">
                         <rect key="frame" x="110" y="211" width="90" height="32"/>
@@ -173,6 +191,10 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="remove:" target="Bhg-p0-7YI" id="yOc-cS-U2t"/>
+                            <binding destination="Bhg-p0-7YI" name="enabled" keyPath="canRemove" id="e3J-53-sNO"/>
+                        </connections>
                     </button>
                     <box autoresizesSubviews="NO" fixedFrame="YES" title="Box" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="OXp-Tb-8TW">
                         <rect key="frame" x="17" y="17" width="500" height="194"/>
@@ -193,7 +215,11 @@
                                 <levelIndicator verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gam-Zp-bAw">
                                     <rect key="frame" x="115" y="114" width="96" height="13"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <levelIndicatorCell key="cell" alignment="left" doubleValue="2" maxValue="5" warningValue="2" criticalValue="2" levelIndicatorStyle="rating" id="iP2-R4-BSQ"/>
+                                    <levelIndicatorCell key="cell" alignment="left" doubleValue="2" maxValue="5" warningValue="2" criticalValue="2" levelIndicatorStyle="rating" id="iP2-R4-BSQ">
+                                        <connections>
+                                            <binding destination="Bhg-p0-7YI" name="value" keyPath="selection.condition" id="y7b-Og-cHp"/>
+                                        </connections>
+                                    </levelIndicatorCell>
                                 </levelIndicator>
                                 <datePicker verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y1A-g4-TeB">
                                     <rect key="frame" x="115" y="146" width="105" height="27"/>
@@ -203,7 +229,7 @@
                                         <calendarDate key="date" timeIntervalSinceReferenceDate="-595929600" calendarFormat="%Y-%m-%d %H:%M:%S %z">
                                             <!--1982-02-12 08:00:00 -0800-->
                                             <timeZone key="timeZone" name="US/Pacific">
-                                                <mutableData key="data">
+                                                <data key="data">
 VFppZgAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAC5AAAABAAAABCepkign7sVkKCGKqChmveQ
 y4kaoNIj9HDSYSYQ1v50INiArZDa/tGg28CQENzes6DdqayQ3r6VoN+JjpDgnneg4WlwkOJ+WaDjSVKQ
 5F47oOUpNJDmR1gg5xJREOgnOiDo8jMQ6gccIOrSFRDr5v4g7LH3EO3G4CDukdkQ76/8oPBxuxDxj96g
@@ -221,17 +247,27 @@ f5gqkAABAAECAwEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
-</mutableData>
+</data>
                                             </timeZone>
                                         </calendarDate>
                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     </datePickerCell>
+                                    <connections>
+                                        <binding destination="Bhg-p0-7YI" name="value" keyPath="selection.selection.datePurchased" id="u12-NG-vIw"/>
+                                    </connections>
                                 </datePicker>
                                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O4T-5e-ejL">
                                     <rect key="frame" x="226" y="16" width="255" height="155"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <imageCell key="cell" selectable="YES" editable="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="xnO-E4-ziJ"/>
+                                    <connections>
+                                        <binding destination="Bhg-p0-7YI" name="value" keyPath="selection.photo" id="imf-sN-Vth">
+                                            <dictionary key="options">
+                                                <bool key="NSConditionallySetsEditable" value="YES"/>
+                                            </dictionary>
+                                        </binding>
+                                    </connections>
                                 </imageView>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="frb-3f-bfa">
                                     <rect key="frame" x="43" y="115" width="66" height="17"/>
@@ -246,6 +282,15 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </view>
                         <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <binding destination="Bhg-p0-7YI" name="displayPatternTitle1" keyPath="selection.makeModel" id="8vs-Zf-4BR">
+                                <dictionary key="options">
+                                    <string key="NSDisplayPattern">Details for %{title1}@</string>
+                                    <string key="NSNoSelectionPlaceholder">&lt;no selection&gt;</string>
+                                    <string key="NSNullPlaceholder">&lt;no Make/Model&gt;</string>
+                                </dictionary>
+                            </binding>
+                        </connections>
                     </box>
                 </subviews>
             </view>
