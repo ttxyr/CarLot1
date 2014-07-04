@@ -69,8 +69,8 @@
                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
                                                             <connections>
-                                                                <binding destination="xIY-VV-vQx" name="fontBold" keyPath="objectValue.onSpecial" id="Nln-lk-Cln"/>
                                                                 <binding destination="xIY-VV-vQx" name="value" keyPath="objectValue.makeModel" id="8xd-Oq-D7A"/>
+                                                                <binding destination="xIY-VV-vQx" name="fontBold" keyPath="objectValue.onSpecial" id="Nln-lk-Cln"/>
                                                             </connections>
                                                         </textField>
                                                     </subviews>
@@ -215,11 +215,14 @@
                                 <levelIndicator verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gam-Zp-bAw">
                                     <rect key="frame" x="115" y="114" width="96" height="13"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <levelIndicatorCell key="cell" alignment="left" doubleValue="2" maxValue="5" warningValue="2" criticalValue="2" levelIndicatorStyle="rating" id="iP2-R4-BSQ">
+                                    <levelIndicatorCell key="cell" editable="YES" alignment="left" doubleValue="2" maxValue="5" warningValue="2" criticalValue="2" levelIndicatorStyle="rating" id="iP2-R4-BSQ">
                                         <connections>
                                             <binding destination="Bhg-p0-7YI" name="value" keyPath="selection.condition" id="y7b-Og-cHp"/>
                                         </connections>
                                     </levelIndicatorCell>
+                                    <connections>
+                                        <binding destination="Bhg-p0-7YI" name="value" keyPath="selection.condition" id="vMP-CT-CBo"/>
+                                    </connections>
                                 </levelIndicator>
                                 <datePicker verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y1A-g4-TeB">
                                     <rect key="frame" x="115" y="146" width="105" height="27"/>
@@ -254,7 +257,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     </datePickerCell>
                                     <connections>
-                                        <binding destination="Bhg-p0-7YI" name="value" keyPath="selection.selection.datePurchased" id="u12-NG-vIw"/>
+                                        <binding destination="Bhg-p0-7YI" name="value" keyPath="selection.datePurchased" id="B6j-om-Lq8"/>
                                     </connections>
                                 </datePicker>
                                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O4T-5e-ejL">
@@ -298,7 +301,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <outlet property="delegate" destination="-2" id="0bl-1N-x8E"/>
             </connections>
         </window>
-        <arrayController mode="entity" entityName="Car" automaticallyPreparesContent="YES" id="Bhg-p0-7YI" userLabel="Cars">
+        <arrayController mode="entity" entityName="Car" automaticallyPreparesContent="YES" id="Bhg-p0-7YI" userLabel="Cars" customClass="CarArrayController">
             <connections>
                 <binding destination="-2" name="managedObjectContext" keyPath="managedObjectContext" id="AP1-kE-6Fv"/>
             </connections>
