@@ -8,6 +8,9 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface MyDocument : NSPersistentDocument
+@interface MyDocument : NSPersistentDocument {
+    IBOutlet NSTableView *tableView;
+    IBOutlet NSArrayController *carsController;
+}
 
 @end
